@@ -13,10 +13,11 @@
             padding: 0;
             text-align: center;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            justify-content: flex-start;
+            align-items: flex-start;
             flex-direction: column;
+            min-height: 100vh; /* Setzt die Mindesthöhe auf 100vh, damit der Inhalt immer mindestens so hoch ist wie das Fenster */
+            padding-top: 20px; /* Fügt oben etwas Platz hinzu, um den oberen Inhalt nicht abzuschneiden */
         }
         .container {
             max-width: 600px;
