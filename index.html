@@ -21,29 +21,14 @@
         .container {
             max-width: 600px;
             width: 100%;
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-            background-color: rgba(255, 255, 255, 0.8); /* Transparentes Weiß für den Container */
-        }
-        /* Hier kannst du das Bild manuell angeben */
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('DEIN_BILD_LINK'); /* Hier das Bild des Instagram-Posts einfügen */
-            background-size: cover;
-            background-position: center;
-            z-index: -1; /* Setzt das Bild hinter den Inhalt */
         }
         h1 {
             font-size: 2.5em;
             margin-bottom: 30px;
-            color: white;
-            position: relative; /* Stellt sicher, dass der Text über dem Hintergrund bleibt */
         }
         .links {
             list-style: none;
@@ -68,6 +53,14 @@
         .links a:hover {
             background-color: #0077cc;
         }
+        .instagram-post {
+            margin-top: 30px;
+        }
+        .instagram-post iframe {
+            max-width: 100%;
+            width: 500px;
+            height: 600px;
+        }
     </style>
 </head>
 <body>
@@ -82,27 +75,26 @@
             <li><a href="https://www.twitch.tv/meep_005?tt_content=twitch_logo&tt_medium=embed" target="_blank"><i class="fab fa-twitch"></i> Twitch</a></li>
             <li><a href="https://www.tiktok.com/@meep_005?lang=de-DE" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
         </ul>
-    </div>
-    <!-- Instagram Post Embed bleibt interaktiv -->
-    <div class="instagram-post">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C2W92Wtt7ti/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
-            <div style="padding:16px;">
-                <a href="https://www.instagram.com/p/C2W92Wtt7ti/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank">
-                    <div style="color:#3897f0; font-size: 14px; font-weight: 550; text-align: center;">Sieh dir diesen Beitrag auf Instagram an</div>
-                </a>
-            </div>
-        </blockquote>
-        <script async src="//www.instagram.com/embed.js"></script>
-    </div>
-    <div class="instagram-post">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C7rXfwxNF0G/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
-            <div style="padding:16px;">
-                <a href="https://www.instagram.com/p/C7rXfwxNF0G/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank">
-                    <div style="color:#3897f0; font-size: 14px; font-weight: 550; text-align: center;">Sieh dir diesen Beitrag auf Instagram an</div>
-                </a>
-            </div>
-        </blockquote>
-        <script async src="//www.instagram.com/embed.js"></script>
+        <div class="instagram-post">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C2W92Wtt7ti/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                <div style="padding:16px;">
+                    <a href="https://www.instagram.com/p/C2W92Wtt7ti/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank">
+                        <div style="color:#3897f0; font-size: 14px; font-weight: 550; text-align: center;">Sieh dir diesen Beitrag auf Instagram an</div>
+                    </a>
+                </div>
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+        <div class="instagram-post">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C7rXfwxNF0G/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                <div style="padding:16px;">
+                    <a href="https://www.instagram.com/p/C7rXfwxNF0G/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank">
+                        <div style="color:#3897f0; font-size: 14px; font-weight: 550; text-align: center;">Sieh dir diesen Beitrag auf Instagram an</div>
+                    </a>
+                </div>
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+        </div>
     </div>
 </body>
 </html>
