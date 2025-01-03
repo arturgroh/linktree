@@ -27,16 +27,17 @@
             position: relative;
             background-color: rgba(255, 255, 255, 0.8); /* Transparentes Weiß für den Container */
         }
-        .instagram-post {
+        /* Hier kannst du das Bild manuell angeben */
+        .background-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://www.instagram.com/p/C2W92Wtt7ti/?utm_source=ig_embed'); /* Link zum Instagram-Post als Hintergrund */
+            background-image: url('DEIN_BILD_LINK'); /* Hier das Bild des Instagram-Posts einfügen */
             background-size: cover;
             background-position: center;
-            z-index: -1; /* Setzt den Instagram-Post hinter den Inhalt */
+            z-index: -1; /* Setzt das Bild hinter den Inhalt */
         }
         h1 {
             font-size: 2.5em;
@@ -82,7 +83,7 @@
             <li><a href="https://www.tiktok.com/@meep_005?lang=de-DE" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
         </ul>
     </div>
-    <!-- Beispiel für eingebetteten Instagram-Post -->
+    <!-- Instagram Post Embed bleibt interaktiv -->
     <div class="instagram-post">
         <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C2W92Wtt7ti/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
             <div style="padding:16px;">
@@ -102,106 +103,6 @@
             </div>
         </blockquote>
         <script async src="//www.instagram.com/embed.js"></script>
-    </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linktree</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            min-height: 100vh;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
-        }
-        .links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .links li {
-            margin: 15px auto;
-            width: 180px;
-        }
-        .links a {
-            display: block;
-            padding: 15px;
-            background-color: #3897f0;
-            color: white;
-            border-radius: 5px;
-            font-size: 1.2em;
-            text-decoration: none;
-            text-align: center;
-            transition: background-color 0.3s;
-        }
-        .links a:hover {
-            background-color: #0077cc;
-        }
-        .instagram-post {
-            margin-top: 30px;
-        }
-        .instagram-post iframe {
-            max-width: 100%;
-            width: 500px;
-            height: 600px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Artur's Linktree</h1>
-        <ul class="links">
-            <li><a href="https://laby.net/@Artur_005" target="_blank"><i class="fas fa-gamepad"></i> Laby.net</a></li>
-            <li><a href="https://www.instagram.com/arturgroh005/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <li><a href="https://www.youtube.com/channel/UCUp3WINyMXQGm-MWpLofUsA" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-            <li><a href="https://x.com/artur_groh" target="_blank"><i class="fab fa-twitter"></i> X</a></li>
-            <li><a href="https://mastodon.social/@meep005" target="_blank"><i class="fab fa-mastodon"></i> Mastodon</a></li>
-            <li><a href="https://www.twitch.tv/meep_005?tt_content=twitch_logo&tt_medium=embed" target="_blank"><i class="fab fa-twitch"></i> Twitch</a></li>
-            <li><a href="https://www.tiktok.com/@meep_005?lang=de-DE" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
-        </ul>
-        <div class="instagram-post">
-            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C2W92Wtt7ti/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
-                <div style="padding:16px;">
-                    <a href="https://www.instagram.com/p/C2W92Wtt7ti/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank">
-                        <div style="color:#3897f0; font-size: 14px; font-weight: 550; text-align: center;">Sieh dir diesen Beitrag auf Instagram an</div>
-                    </a>
-                </div>
-            </blockquote>
-            <script async src="//www.instagram.com/embed.js"></script>
-        </div>
-        <div class="instagram-post">
-            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C7rXfwxNF0G/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
-                <div style="padding:16px;">
-                    <a href="https://www.instagram.com/p/C7rXfwxNF0G/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank">
-                        <div style="color:#3897f0; font-size: 14px; font-weight: 550; text-align: center;">Sieh dir diesen Beitrag auf Instagram an</div>
-                    </a>
-                </div>
-            </blockquote>
-            <script async src="//www.instagram.com/embed.js"></script>
-        </div>
     </div>
 </body>
 </html>
