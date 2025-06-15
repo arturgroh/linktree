@@ -1,89 +1,84 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linktree</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
-      color: #333;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
-      text-align: center;
-    }
-    .container {
-      max-width: 600px;
-      width: 100%;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 30px;
-    }
-    .links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .links li {
-      margin: 15px auto;
-      width: 180px;
-    }
-    .links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 15px;
-      background-color: #3897f0;
-      color: white;
-      border-radius: 5px;
-      font-size: 1.2em;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-    .links a:hover {
-      background-color: #0077cc;
-    }
-    .pixelfed-icon {
-      width: 20px;
-      height: 20px;
-    }
-    svg.pixelfed-icon path {
-      fill: white;
-    }
-  </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linktree</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        .links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .links li {
+            margin: 15px auto;
+            width: 180px;
+        }
+        .links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background-color: #3897f0;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.2em;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .links a:hover {
+            background-color: #0077cc;
+        }
+        .links img.icon {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Artur's Linktree</h1>
-    <ul class="links">
-      <li><a href="https://laby.net/@Artur_005" target="_blank"><i class="fas fa-gamepad"></i> Laby.net</a></li>
-      <li><a href="https://www.instagram.com/arturgroh005/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-      <li>
-        <a href="https://pixelfed.social/einfachartur" target="_blank">
-          <!-- Pixelfed SVG Icon -->
-          <svg class="pixelfed-icon" viewBox="0 0 1024 1024">
-            <path d="M512 0C229.23 0 0 229.23 0 512s229.23 512 512 512 512-229.23 512-512S794.77 0 512 0zm0 938.67C276.48 938.67 85.33 747.52 85.33 512S276.48 85.33 512 85.33 938.67 276.48 938.67 512 747.52 938.67 512 938.67zM704 341.33h-85.33v-85.33h-213.34v85.33H320c-23.47 0-42.67 19.2-42.67 42.67v298.67c0 23.47 19.2 42.67 42.67 42.67h384c23.47 0 42.67-19.2 42.67-42.67V384c0-23.47-19.2-42.67-42.67-42.67zM512 682.67c-70.59 0-128-57.41-128-128s57.41-128 128-128 128 57.41 128 128-57.41 128-128 128zm0-170.67c-23.53 0-42.67 19.14-42.67 42.67s19.14 42.67 42.67 42.67 42.67-19.14 42.67-42.67-19.14-42.67-42.67-42.67z"/>
-          </svg>
-          Pixelfed
-        </a>
-      </li>
-      <li><a href="https://www.youtube.com/channel/UCUp3WINyMXQGm-MWpLofUsA" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-      <li><a href="https://x.com/artur_groh" target="_blank"><i class="fab fa-twitter"></i> X</a></li>
-      <li><a href="https://mastodon.social/@meep005" target="_blank"><i class="fab fa-mastodon"></i> Mastodon</a></li>
-      <li><a href="https://www.twitch.tv/meep_005?tt_content=twitch_logo&tt_medium=embed" target="_blank"><i class="fab fa-twitch"></i> Twitch</a></li>
-    </ul>
-  </div>
+    <div class="container">
+        <h1>Artur's Linktree</h1>
+        <ul class="links">
+            <li><a href="https://laby.net/@Artur_005" target="_blank"><i class="fas fa-gamepad"></i> Laby.net</a></li>
+            <li><a href="https://www.instagram.com/arturgroh005/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li>
+                <a href="https://pixelfed.social/einfachartur" target="_blank">
+                    <img class="icon" src="https://www.svgrepo.com/show/361938/pixelfed.svg" alt="Pixelfed">
+                    Pixelfed
+                </a>
+            </li>
+            <li><a href="https://www.youtube.com/channel/UCUp3WINyMXQGm-MWpLofUsA" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+            <li><a href="https://x.com/artur_groh" target="_blank"><i class="fab fa-twitter"></i> X</a></li>
+            <li><a href="https://mastodon.social/@meep005" target="_blank"><i class="fab fa-mastodon"></i> Mastodon</a></li>
+            <li><a href="https://www.twitch.tv/meep_005?tt_content=twitch_logo&tt_medium=embed" target="_blank"><i class="fab fa-twitch"></i> Twitch</a></li>
+        </ul>
+    </div>
 </body>
 </html>
