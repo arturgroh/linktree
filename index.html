@@ -1,88 +1,126 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linktree</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #111;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artur's Linktree</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #121212;
+      --bg-card: #1e1e1e;
+      --text-light: #f5f5f5;
+      --accent: #4f46e5;
+      --accent-hover: #4338ca;
+    }
 
-        .container {
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            padding: 30px 20px;
-            margin: 40px auto;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            box-sizing: border-box;
-        }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
 
-        h1 {
-            font-size: 2em;
-            margin-bottom: 25px;
-            text-align: center;
-        }
+    .container {
+      background-color: var(--bg-card);
+      width: 100%;
+      max-width: 480px;
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      margin-bottom: 30px;
+    }
 
-        .links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
 
-        .links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #5865F2;
-            color: white;
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
-        }
+    .links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-        .links a:hover {
-            background-color: #4752c4;
-        }
+    .links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: var(--accent);
+      color: var(--text-light);
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-        .links img.icon {
-            width: 20px;
-            height: 20px;
-        }
-    </style>
+    .links a:hover {
+      background-color: var(--accent-hover);
+      transform: scale(1.02);
+    }
+
+    .links img.icon {
+      width: 20px;
+      height: 20px;
+      filter: invert(100%);
+    }
+
+    .embed-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px auto 10px;
+      padding: 0 10px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .embed-wrapper iframe {
+      max-width: 100%;
+      width: 100%;
+      height: 550px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Artur's Linktree</h1>
-        <ul class="links">
-            <li><a href="https://laby.net/@Artur_005" target="_blank"><i class="fas fa-gamepad"></i> Laby.net</a></li>
-            <li><a href="https://www.instagram.com/arturgroh005/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <li>
-                <a href="https://pixelfed.social/einfachartur" target="_blank">
-                    <img class="icon" src="https://www.svgrepo.com/show/361938/pixelfed.svg" alt="Pixelfed Logo">
-                    Pixelfed
-                </a>
-            </li>
-            <li><a href="https://www.youtube.com/channel/UCUp3WINyMXQGm-MWpLofUsA" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-            <li><a href="https://x.com/artur_groh" target="_blank"><i class="fab fa-twitter"></i> X</a></li>
-            <li><a href="https://mastodon.social/@meep005" target="_blank"><i class="fab fa-mastodon"></i> Mastodon</a></li>
-            <li><a href="https://www.twitch.tv/meep_005" target="_blank"><i class="fab fa-twitch"></i> Twitch</a></li>
-        </ul>
-    </div>
+  <div class="container">
+    <h1>Artur's Linktree</h1>
+    <ul class="links">
+      <li><a href="https://laby.net/@Artur_005" target="_blank"><i class="fas fa-gamepad"></i> Laby.net</a></li>
+      <li><a href="https://www.instagram.com/arturgroh005/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+      <li><a href="https://pixelfed.social/einfachartur" target="_blank">
+        <img class="icon" src="https://www.svgrepo.com/show/361938/pixelfed.svg" alt="Pixelfed" />
+        Pixelfed</a></li>
+      <li><a href="https://www.youtube.com/channel/UCUp3WINyMXQGm-MWpLofUsA" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+      <li><a href="https://x.com/artur_groh" target="_blank"><i class="fab fa-twitter"></i> X</a></li>
+      <li><a href="https://mastodon.social/@meep005" target="_blank"><i class="fab fa-mastodon"></i> Mastodon</a></li>
+      <li><a href="https://www.twitch.tv/meep_005?tt_content=twitch_logo&tt_medium=embed" target="_blank"><i class="fab fa-twitch"></i> Twitch</a></li>
+    </ul>
+  </div>
+
+  <!-- Fester Pixelfed-Post Embed unten mittig -->
+  <div class="embed-wrapper">
+    <iframe title="Pixelfed Post Embed"
+      src="https://pixelfed.social/p/einfachartur/840021998171721827/embed?caption=false&likes=false&layout=compact"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script async defer src="https://pixelfed.social/embed.js"></script>
 </body>
 </html>
