@@ -24,10 +24,12 @@
       background-color: var(--bg-dark);
       color: var(--text-light);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       padding: 20px;
+      text-align: center;
     }
 
     .container {
@@ -37,7 +39,7 @@
       padding: 30px 20px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-      text-align: center;
+      margin-bottom: 30px;
     }
 
     h1 {
@@ -81,6 +83,19 @@
       filter: invert(100%);
     }
 
+    .embed-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .pixelfed__embed {
+      max-width: 100%;
+      border: none;
+    }
+
     @media (max-width: 480px) {
       h1 {
         font-size: 1.5rem;
@@ -111,5 +126,16 @@
       <li><a href="https://www.twitch.tv/meep_005?tt_content=twitch_logo&tt_medium=embed" target="_blank"><i class="fab fa-twitch"></i> Twitch</a></li>
     </ul>
   </div>
+
+  <!-- Pixelfed Embed -->
+  <div class="embed-wrapper">
+    <iframe title="Pixelfed Post Embed"
+      src="https://pixelfed.social/p/einfachartur/840021998171721827/embed?caption=false&likes=false&layout=compact"
+      class="pixelfed__embed"
+      style="width: 400px; height: auto;"
+      allowfullscreen="allowfullscreen">
+    </iframe>
+  </div>
+  <script async defer src="https://pixelfed.social/embed.js"></script>
 </body>
 </html>
