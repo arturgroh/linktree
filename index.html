@@ -18,7 +18,7 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg-dark);
@@ -28,14 +28,12 @@
       align-items: center;
       padding: 20px;
       min-height: 100vh;
-      overflow-x: hidden;
-      overflow-y: auto;
     }
 
     .container {
       background-color: var(--bg-card);
       width: 100%;
-      max-width: 640px;
+      max-width: 500px;
       padding: 32px 24px;
       border-radius: 18px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -86,18 +84,18 @@
 
     .embed-wrapper {
       width: 100%;
-      max-width: 640px;
+      max-width: 500px;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-      margin-bottom: 40px;
     }
 
     .embed-wrapper iframe {
       width: 100%;
-      height: 600px; /* fixierte Höhe */
+      height: 600px; /* feste Höhe – verhindert Scrollbars */
       border: none;
       display: block;
+      overflow: hidden;
     }
 
     @media (max-width: 480px) {
@@ -111,7 +109,7 @@
       }
 
       .embed-wrapper iframe {
-        height: 500px;
+        height: 500px; /* kleinere feste Höhe für Mobile */
       }
     }
   </style>
@@ -134,7 +132,8 @@
   </div>
 
   <div class="embed-wrapper">
-    <iframe title="Pixelfed Post Embed"
+    <iframe
+      title="Pixelfed Post Embed"
       src="https://pixelfed.social/p/einfachartur/840021998171721827/embed?caption=false&likes=false&layout=compact"
       allowfullscreen>
     </iframe>
