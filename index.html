@@ -30,7 +30,7 @@
     .container {
       background-color: var(--bg-card);
       width: 100%;
-      max-width: 480px;
+      max-width: 640px; /* <- Breiter gemacht */
       padding: 30px 20px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
@@ -81,19 +81,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 30px auto 10px;
+      margin: 0 auto 20px;
       padding: 0 10px;
-      max-width: 100%;
+      max-width: 640px; /* <- gleiche Breite wie Container */
+      width: 100%;
       box-sizing: border-box;
     }
 
     .embed-wrapper iframe {
-      max-width: 100%;
       width: 100%;
       height: 550px;
       border: none;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
   </style>
 </head>
@@ -113,7 +113,7 @@
     </ul>
   </div>
 
-  <!-- Fester Pixelfed-Post Embed unten mittig -->
+  <!-- Eingebetteter fester Pixelfed-Post -->
   <div class="embed-wrapper">
     <iframe title="Pixelfed Post Embed"
       src="https://pixelfed.social/p/einfachartur/840021998171721827/embed?caption=false&likes=false&layout=compact"
