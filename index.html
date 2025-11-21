@@ -408,6 +408,112 @@ socket.onopen = () => {
 
 socket.onmessage = (event) => {
   const data = JSON.parse(event.data);
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artur's Gamer Linktree</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a0a0f;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #ff003c, #ff00ff, #00aaff, #ffee00);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(255,0,255,0.4);
+    }
+
+    .card-container {
+      width: 100%;
+      max-width: 450px;
+      background: rgba(20, 20, 35, 0.9);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 25px rgba(255,0,80,0.4);
+      backdrop-filter: blur(8px);
+    }
+
+    .links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .links li a {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      justify-content: center;
+      text-decoration: none;
+      padding: 1rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff003c, #ff00ff);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: 0.2s ease;
+      box-shadow: 0 0 12px rgba(255,0,80,0.5);
+    }
+
+    .links li a:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 0 20px rgba(0,170,255,0.8);
+      background: linear-gradient(135deg, #00aaff, #ffee00);
+      color: #000;
+    }
+
+    .links li img.icon {
+      width: 1.4rem;
+      height: 1.4rem;
+      filter: invert(1);
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem; }
+      .card-container { padding: 1.5rem; }
+      .links li a { font-size: 1.05rem; padding: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Artur's Linktree</h1>
+
+  <div class="card-container">
+    <ul class="links">
+      <li><a href="https://laby.net/@Artur_005" target="_blank"><i class="fas fa-gamepad"></i> Laby.net</a></li>
+      <li><a href="https://www.instagram.com/arturgroh005/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+      <li><a href="https://www.youtube.com/channel/UCUp3WINyMXQGm-MWpLofUsA" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+      <li><a href="https://x.com/artur_groh" target="_blank"><i class="fab fa-twitter"></i> X</a></li>
+      <li><a href="https://mastodon.social/@meep005" target="_blank"><i class="fab fa-mastodon"></i> Mastodon</a></li>
+      <li><a href="https://www.twitch.tv/meep_005?tt_content=twitch_logo&tt_medium=embed" target="_blank"><i class="fab fa-twitch"></i> Twitch</a></li>
+    </ul>
+  </div>
+
+</body>
+</html>
+
   if (!data.t || !data.d) return;
 
   presence = data.t === "INIT_STATE" ? data.d[userId] : data.t === "PRESENCE_UPDATE" ? data.d : null;
@@ -459,25 +565,7 @@ socket.onmessage = (event) => {
         : "";
           spotifyInfo.innerHTML = `
         <div class="spotify-track">
-          <img src="${albumArt}" alt="Album Art">
-          <div class="track-name">${song}</div>
-          <div class="tidal-label">TIDAL</div>
-        </div>
-      `;
-      applyDominantColor(albumArt);
-      window.updateThreeWithSpotifyArt?.(albumArt);
-    } else {
-      // No music currently playing
-      spotifyInfo.innerHTML = "Not listening to music right now.";
-      if (spotifyContainer) {
-        spotifyContainer.style.backgroundColor = "";
-        spotifyContainer.style.color = "";
-        const trackName = spotifyContainer.querySelector(".track-name");
-        const trackArtist = spotifyContainer.querySelector(".track-artist");
-        if (trackName) trackName.style.color = "";
-        if (trackArtist) trackArtist.style.color = "";
-      }
-      if (cardBox) {
+) {
         cardBox.style.backgroundColor = "";
         cardBox.style.color = "";
       }
