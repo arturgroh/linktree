@@ -295,6 +295,7 @@
   <footer>
     © <span id="year"></span> 아르투르 · gehostet auf GitHub Pages
     <div class="priv">Private, nicht-kommerzielle Seite ohne Werbung, Cookies und Tracking. Der Live-Status wird über Lanyard (api.lanyard.rest) abgerufen.</div>
+    <div class="priv" id="srcInfo"></div>
   </footer>
 </div>
 
@@ -468,6 +469,10 @@ function fromLanyard(d) {
   return { status: d.discord_status, music, game };
 }
 
+const VERSION = "v4";
+function info(t) { $("srcInfo").textContent = VERSION + " · " + t; }
+const hhmmss = () => new Date().toLocaleTimeString("de-DE");
+
 /* ---------- Abfrage ---------- */
 async function poll() {
   try {
@@ -486,13 +491,53 @@ async function poll() {
     setPill("musicPill", "live");
     setPill("gamePill", "live");
     apply(normalize(raw));
+    info((CFG.statusUrl ? "Quelle: eigene URL" : "Quelle: Lanyard") + " · aktualisiert " + hhmmss());
   } catch (e) {
     console.warn("Status konnte nicht geladen werden:", e.message || e);
     setPill("musicPill", "off");
     setPill("gamePill", "off");
     $("musicPill").title = $("gamePill").title = String(e.message || e);
+    info("Fehler: " + (e.message || e));
     setDot("offline");
   }
+}
+
+/* ---------- Echtzeit über Lanyard-WebSocket ---------- */
+let ws = null, wsAlive = false, wsTimer = null, wsRetry = 0;
+
+function applyLanyard(d) {
+  setPill("musicPill", "live");
+  setPill("gamePill", "live");
+  apply(normalize(fromLanyard(d)));
+  info("Quelle: Lanyard (Echtzeit) · Update " + hhmmss());
+}
+
+function connectLanyard() {
+  try { ws = new WebSocket("wss://api.lanyard.rest/socket"); }
+  catch (e) { setTimeout(connectLanyard, 5000); return; }
+
+  ws.onmessage = ev => {
+    let m; try { m = JSON.parse(ev.data); } catch (e) { return; }
+    if (m.op === 1) {                                   // Hello
+      const iv = (m.d && m.d.heartbeat_interval) || 30000;
+      ws.send(JSON.stringify({ op: 2, d: { subscribe_to_id: CFG.discordUserId } }));
+      clearInterval(wsTimer);
+      wsTimer = setInterval(() => { if (ws.readyState === 1) ws.send(JSON.stringify({ op: 3 })); }, iv);
+    } else if (m.op === 0 && (m.t === "INIT_STATE" || m.t === "PRESENCE_UPDATE")) {
+      if (!m.d || !m.d.discord_status) {                // Lanyard kennt die ID nicht
+        info("Fehler: Lanyard kennt deine ID nicht – bist du dem Server discord.gg/lanyard beigetreten?");
+        return;
+      }
+      wsAlive = true; wsRetry = 0;
+      applyLanyard(m.d);
+    }
+  };
+  ws.onclose = () => {
+    wsAlive = false; clearInterval(wsTimer);
+    wsRetry = Math.min(wsRetry + 1, 5);
+    setTimeout(connectLanyard, wsRetry * 3000);         // automatisch neu verbinden
+  };
+  ws.onerror = () => { try { ws.close(); } catch (e) {} };
 }
 
 /* ---------- Start ---------- */
@@ -502,11 +547,16 @@ const dt = $("discordTile");
 if (CFG.discordUserId) dt.href = "https://discord.com/users/" + encodeURIComponent(CFG.discordUserId);
 else { dt.removeAttribute("href"); dt.removeAttribute("target"); }
 
-if (CFG.statusUrl || CFG.discordUserId) {
+if (CFG.statusUrl) {                         // eigene Datenquelle: regelmäßig abfragen
   poll();
   setInterval(poll, Math.max(5, CFG.pollSeconds) * 1000);
+} else if (CFG.discordUserId) {              // Standard: Echtzeit per WebSocket
+  connectLanyard();
+  poll();                                    // schneller erster Stand
+  setInterval(() => { if (!wsAlive) poll(); }, Math.max(5, CFG.pollSeconds) * 1000); // Rückfall
 } else {
   apply(normalize(demoData()));
+  info(window.STATUS_CONFIG ? "Demo-Modus: keine Discord-ID in config.js eingetragen" : "Demo-Modus: config.js wurde nicht gefunden");
 }
 setInterval(tickMusic, 500);
 setInterval(tickGame, 15000);
