@@ -231,16 +231,9 @@
 </div>
 
 <script>
-/* ======================================================================
-   EINZIGE EINSTELLUNG: deine Discord-ID (nur Ziffern, in Anführungszeichen)
 
-   1. Discord: Einstellungen → Erweitert → Entwicklermodus an
-   2. Rechtsklick auf dein Profil → "Benutzer-ID kopieren" → unten einfügen
-   3. Dem Server https://discord.gg/lanyard beitreten und dort bleiben
-   ====================================================================== */
 const DISCORD_ID = "754664785362157579";
 
-/* ====================================================================== */
 const VERSION = "v5";
 const el = id => document.getElementById(id);
 const NOTE = '<svg viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>';
@@ -254,7 +247,7 @@ const mmss = s => { s = Math.max(0, Math.floor(s)); return Math.floor(s / 60) + 
 const info = msg => { el("srcInfo").textContent = VERSION + " · " + msg; };
 const pills = (text, cls) => ["musicPill", "gamePill"].forEach(id => { el(id).textContent = text; el(id).className = "pill " + cls; });
 
-/* ---------- Discord-Daten → Anzeige-Daten ---------- */
+
 function artUrl(img, appId) {
   if (!img) return "";
   if (img.startsWith("mp:")) return "https://media.discordapp.net/" + img.slice(3);
