@@ -396,16 +396,10 @@
 </div>
 
 <script>
-/* ======================================================================
-   EINZIGE EINSTELLUNG: deine Discord-ID (nur Ziffern, in Anführungszeichen)
-   1. Discord: Einstellungen → Erweitert → Entwicklermodus an
-   2. Rechtsklick auf dein Profil → "Benutzer-ID kopieren" → unten einfügen
-   3. Dem Server https://discord.gg/lanyard beitreten und dort bleiben
-   ====================================================================== */
-const DISCORD_ID = "";
 
-/* Optional: eigenes Banner-Bild (Datei neben index.html, z. B. "banner.jpg").
-   Leer lassen = animierte Neon-Skyline, die zu deinem Profilbild passt. */
+const DISCORD_ID = "754664785362157579";
+
+
 const BANNER_IMAGE = "";
 
 /* ====================================================================== */
@@ -529,9 +523,6 @@ function toggleParty() {                                     // Konami-Code / Sc
   el("eq").classList.toggle("on", musicOn || party);
 }
 
-/* ======================================================================
-   EFFEKTE: Farbschema, Einblenden, Tippen, Mauslicht, Funkeln, Neigung, Herzen
-   ====================================================================== */
 (function effects() {
   try {
     const root = document.documentElement;
@@ -615,9 +606,7 @@ function toggleParty() {                                     // Konami-Code / Sc
   } catch (err) { /* Effekte sind nur Deko – nie die Seite blockieren */ }
 })();
 
-/* ======================================================================
-   BANNER: animierte Neon-Skyline (passt zu den Profilbild-Farben)
-   ====================================================================== */
+
 (function bannerScene() {
   try {
     const box = el("banner"), cv = el("bannerCanvas");
@@ -800,9 +789,7 @@ function toggleParty() {                                     // Konami-Code / Sc
   } catch (err) { /* Banner ist nur Deko */ }
 })();
 
-/* ======================================================================
-   SCHNELLSUCHE (Strg+K), Tastenkürzel, Konami-Code
-   ====================================================================== */
+
 (function keyboardAndSearch() {
   try {
     const pal = el("palette"), inp = el("palInput"), list = el("palList");
@@ -879,9 +866,7 @@ function toggleParty() {                                     // Konami-Code / Sc
   } catch (err) { /* nur Komfort */ }
 })();
 
-/* ======================================================================
-   KLEINE EXTRAS: Profilbild dreht sich, Wellen auf Kacheln, Platte anhalten, Scroll-Balken
-   ====================================================================== */
+
 (function extras() {
   try {
     const av = document.querySelector(".avatar");
@@ -1105,7 +1090,7 @@ function tick() {
 }
 setInterval(tick, 500);
 
-/* ---------- Debug (nur sichtbar mit #debug in der Adresse) ---------- */
+
 function debug(p) {
   if (location.hash !== "#debug") return;
   const box = el("dbg");
@@ -1118,7 +1103,7 @@ function debug(p) {
   }, null, 2);
 }
 
-/* ---------- Verbindung zu Lanyard ---------- */
+
 let alive = false, ws = null, hb = null, retry = 0;
 
 function setPill(text, cls) { el("livePill").textContent = text; el("livePill").className = "pill " + cls; }
