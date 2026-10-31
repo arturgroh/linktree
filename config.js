@@ -17,7 +17,7 @@ window.STATUS_CONFIG = {
   discordUserId: "754664785362157579",   // z. B. "123456789012345678"
 
   // Wie oft abgefragt wird (Sekunden, mindestens 5)
-  pollSeconds: 5
+  pollSeconds: 10
 
   /* Fortgeschritten (nicht nötig): eigene Datenquelle statt Lanyard,
      z. B. der Desktop-Client aus dem Projekt:
