@@ -405,7 +405,7 @@ function tickMusic() {
   const now = Date.now(), dt = (now - lastTick) / 1000; lastTick = now;
   if (!music) return;
   if (!music.isPaused) music.position += dt;
-  if (!CFG.statusUrl && music.position >= music.duration) music.position = 0; // Demo-Schleife
+  if (!CFG.statusUrl && !CFG.discordUserId && music.position >= music.duration) music.position = 0; // nur Demo-Schleife
   const pct = music.duration ? Math.min(100, music.position / music.duration * 100) : 0;
   $("barFill").style.width = pct + "%";
   $("tNow").textContent = fmt(music.position);
@@ -429,6 +429,8 @@ function assetUrl(a, appId) {
   return "";
 }
 
+const MUSIC_NAMES = /tidal|spotify|jellyfin|music presence|apple music|deezer|youtube music|soundcloud|foobar|vlc|plex/i;
+
 function fromLanyard(d) {
   const acts = d.activities || [];
   const now = Date.now();
@@ -445,7 +447,7 @@ function fromLanyard(d) {
     };
   } else {
     // andere "Hört"-Aktivitäten, z. B. von Music Presence oder Tidal
-    const l = acts.find(a => a.type === 2 && a.details);
+    const l = acts.find(a => (a.type === 2 || (a.type === 0 && MUSIC_NAMES.test(a.name || ""))) && a.details);
     if (l) {
       const t = l.timestamps || {};
       music = {
@@ -458,7 +460,7 @@ function fromLanyard(d) {
     }
   }
 
-  const p = acts.find(a => a.type === 0);
+  const p = acts.find(a => a.type === 0 && !MUSIC_NAMES.test(a.name || ""));
   if (p) game = {
     name: p.name, detail: p.details || p.state || "",
     startedAt: p.timestamps && p.timestamps.start ? p.timestamps.start / 1000 : null
@@ -488,6 +490,7 @@ async function poll() {
     console.warn("Status konnte nicht geladen werden:", e.message || e);
     setPill("musicPill", "off");
     setPill("gamePill", "off");
+    $("musicPill").title = $("gamePill").title = String(e.message || e);
     setDot("offline");
   }
 }
